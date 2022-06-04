@@ -1,4 +1,4 @@
 ## How to run example: 
 
-# javac LinkedList.java
-# java LinkedList
+-- javac LinkedList.java
+-- java LinkedList
