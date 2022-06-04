@@ -165,15 +165,9 @@ public class LinkedList {
         return list;
     }
 
-    // You are given a linked list that contains integers. You have performed the
-    // following reverse operation on the list:
-    // Select all the subparts of the list that contain only even integers. For
-    // example, if the list is {1,2,8,9,7,6,12}, then the selected subparts will be
-    // ,{2,8} {6,12}
-    // Reverse the selected subpart such as and {8,2} and {12,6}.
-    // Now, you are required to retrieve the original list. so output will be
-    // {1,8,2,9,7,12,6}
-
+    /*
+     * Reverses a Linked list
+     */
     public static LinkedList reverse(LinkedList list) {
         Node current = list.head, prev = null, next = null;
         while (current != null) {
