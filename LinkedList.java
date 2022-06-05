@@ -1,8 +1,10 @@
+
+
 /**
  * LinkedList
  */
 public class LinkedList {
-    private Node head; // Head of the LinkedList
+    protected Node head; // Head of the LinkedList
 
     /**
      * Node - Creates a node
@@ -39,6 +41,7 @@ public class LinkedList {
         return list;
 
     }
+
 
     public static LinkedList insertAtPosition(LinkedList list, int index, int data) {
         Node curr = list.head, prev = null, n = new Node(data);
@@ -178,13 +181,6 @@ public class LinkedList {
         }
         list.head = prev;
         return list;
-    }
-
-    public static int printNodeData(Node n) {
-        if (n != null) {
-            return n.data;
-        }
-        return -1;
     }
 
     public static void main(String[] args) {
