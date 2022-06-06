@@ -7,8 +7,8 @@ Add 1 to a number represented as a linked list
 Reverse a linked list in groups of given size
 Detect loop in linked list
 Remove loop in linked list
-Find nth node from the end of linked list
-Function to check if a singly linked list is a palindrome
+Find nth node from the end of linked list -- Done
+Function to check if a singly linked list is a palindrome -- InProgress
 Reverse alternate k node in a singly linked list
 Delete last occurrence of an item from linked list
 Rotate a linked list.

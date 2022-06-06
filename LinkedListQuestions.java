@@ -60,10 +60,47 @@ public class LinkedListQuestions extends LinkedList {
             if (prev != null && prev.data == curr.data) {
                 prev.next = curr.next;
             } else {
-                prev = curr; // I messed up here earlier as I didn't put else. Else is required here because if a node is deleted then you need not assign it to prev as it won't delete in the case of last elements being duplicate
+                prev = curr; // I messed up here earlier as I didn't put else. Else is required here because
+                             // if a node is deleted then you need not assign it to prev as it won't delete
+                             // in the case of last elements being duplicate
             }
             curr = curr.next;
         }
+    }
+
+    // Nth node from end of linked list
+    // Given a linked list consisting of L nodes and given a number N. The task is
+    // to find the Nth node from the end of the linked list.
+
+    int getNthFromLast(LinkedList list, int n) {
+        Node mainPtr = list.head, refPtr = list.head;
+        int counter = 0;
+        while (counter < n) {
+            if (refPtr == null) {
+                return -1;
+            }
+            refPtr = refPtr.next;
+            counter++;
+        }
+        while (refPtr != null) {
+            mainPtr = mainPtr.next;
+            refPtr = refPtr.next;
+        }
+        return mainPtr.data;
+    }
+
+    // Function to check if a singly linked list is a palindrome
+    // ToDo
+    // multiple traversal
+    boolean isPalindrome(Node head) {
+        Node first = head, second = head;
+        int size = 0;
+        while (first != null) {
+            size++;
+            first = first.next;
+        }
+
+        return true;
     }
 
     public static void main(String[] args) {
