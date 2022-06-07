@@ -92,7 +92,8 @@ public class LinkedListQuestions extends LinkedList {
     }
 
     // Function to check if a singly linked list is a palindrome
-    // Stack Approach. Add to stack and traverse again compare with check stack.pop now
+    // Stack Approach. Add to stack and traverse again compare with check stack.pop
+    // now
     boolean isPalindrome(Node head) {
         Node first = head, second = head;
         Stack<Integer> st = new Stack<Integer>();
@@ -109,6 +110,40 @@ public class LinkedListQuestions extends LinkedList {
         return true;
     }
 
+    // Delete last occurrence of an item from linked list
+    // First approach that came to mind
+    static LinkedList delLastOccurence(LinkedList list, int item) {
+        Node ptr = list.head, mainPrev = null, curr = null, prev = null;
+        while (ptr != null) {
+            if (ptr.data == item) {
+                prev = mainPrev;
+                curr = ptr.next;
+            }
+            mainPrev = ptr;
+            ptr = ptr.next;
+        }
+        if (prev == null && curr == null) {
+            return list;
+        }
+        if (prev == null && curr != null) {
+            System.out.println("there");
+            Node temp = list.head;
+            list.head = list.head.next;
+            temp = null;
+            return list;
+        }
+        if (prev != null && curr != null) {
+            prev.next = curr.next;
+            return list;
+        }
+         if (prev != null && curr == null) {
+            System.out.println("here");
+            prev.next = curr;
+            return list;
+        }
+        return list;
+    }
+
     public static void main(String[] args) {
         try {
             LinkedListQuestions l1 = new LinkedListQuestions();
@@ -117,13 +152,15 @@ public class LinkedListQuestions extends LinkedList {
             insert(l1, 3);
             insert(l1, 4);
             insert(l1, 4);
-            insert(l1, 3);
+            insert(l1, 4);
             insert(l1, 2);
-            insert(l1, 1);
+            insert(l1, 4);
             // printList(l1);
             // l1.removeDuplicateElements();
-            System.out.println("Is list palindrome? Ans - " + l1.isPalindrome(l1.head));
+            // System.out.println("Is list palindrome? Ans - " + l1.isPalindrome(l1.head));
             // printList(l1);
+            delLastOccurence(l1, 11);
+            printList(l1);
 
         } catch (Exception e) {
             System.out.println(e);
