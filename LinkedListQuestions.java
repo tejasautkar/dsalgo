@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 public class LinkedListQuestions extends LinkedList {
 
     LinkedListQuestions() {
@@ -90,16 +92,20 @@ public class LinkedListQuestions extends LinkedList {
     }
 
     // Function to check if a singly linked list is a palindrome
-    // ToDo
-    // multiple traversal
+    // Stack Approach. Add to stack and traverse again compare with check stack.pop now
     boolean isPalindrome(Node head) {
         Node first = head, second = head;
-        int size = 0;
+        Stack<Integer> st = new Stack<Integer>();
         while (first != null) {
-            size++;
+            st.push(first.data);
             first = first.next;
         }
-
+        while (second != null) {
+            if (second.data != st.pop()) {
+                return false;
+            }
+            second = second.next;
+        }
         return true;
     }
 
@@ -110,13 +116,14 @@ public class LinkedListQuestions extends LinkedList {
             insert(l1, 2);
             insert(l1, 3);
             insert(l1, 4);
-            insert(l1, 5);
-            insert(l1, 6);
-            insert(l1, 6);
-            insert(l1, 6);
+            insert(l1, 4);
+            insert(l1, 3);
+            insert(l1, 2);
+            insert(l1, 1);
             // printList(l1);
-            l1.removeDuplicateElements();
-            printList(l1);
+            // l1.removeDuplicateElements();
+            System.out.println("Is list palindrome? Ans - " + l1.isPalindrome(l1.head));
+            // printList(l1);
 
         } catch (Exception e) {
             System.out.println(e);
