@@ -136,7 +136,7 @@ public class LinkedListQuestions extends LinkedList {
             prev.next = curr.next;
             return list;
         }
-         if (prev != null && curr == null) {
+        if (prev != null && curr == null) {
             System.out.println("here");
             prev.next = curr;
             return list;
@@ -144,22 +144,60 @@ public class LinkedListQuestions extends LinkedList {
         return list;
     }
 
+    void deleteList() {
+        this.head = null;
+    }
+
+    // Add 1 to a number represented as linked list
+    LinkedList addToList(LinkedList list) {
+        list = reverseList(list);
+        Node curr = list.head;
+        int carry = 1, sum = 0;
+        while (curr != null) {
+            sum = curr.data + carry;
+            System.out.println("sum " + sum);
+            carry = (sum >= 10) ? 1 : 0;
+            System.out.println("carry " + carry);
+            sum = sum % 10;
+            curr.data = sum;
+            curr = curr.next;
+        }
+        if (carry > 0) {
+            insert(list, carry);
+        }
+        return reverse(list);
+
+    }
+
+    LinkedList reverseList(LinkedList list) {
+        Node curr = list.head, prev = null, next = null;
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        list.head = prev;
+        return list;
+    }
+
     public static void main(String[] args) {
         try {
             LinkedListQuestions l1 = new LinkedListQuestions();
-            insert(l1, 1);
-            insert(l1, 2);
-            insert(l1, 3);
-            insert(l1, 4);
-            insert(l1, 4);
-            insert(l1, 4);
-            insert(l1, 2);
-            insert(l1, 4);
+            insert(l1, 9);
+            insert(l1, 9);
+            insert(l1, 9);
+            insert(l1, 9);
+            insert(l1, 9);
+            insert(l1, 9);
+            insert(l1, 9);
+            insert(l1, 9);
             // printList(l1);
             // l1.removeDuplicateElements();
             // System.out.println("Is list palindrome? Ans - " + l1.isPalindrome(l1.head));
             // printList(l1);
-            delLastOccurence(l1, 11);
+            // delLastOccurence(l1, 11);
+            l1.addToList(l1);
             printList(l1);
 
         } catch (Exception e) {

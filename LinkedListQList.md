@@ -6,12 +6,13 @@
 - Find nth node from the end of linked list
 - Function to check if a singly linked list is a palindrome
 - Delete last occurrence of an item from linked list
+- Delete a list
+- Add 1 to a number represented as a linked list
 
 
 ## ToDo
 - Flattening a linked list
 - Delete the elements in an linked list whose sum is equal to zero
-- Add 1 to a number represented as a linked list
 - Reverse a linked list in groups of given size
 - Detect loop in linked list
 - Remove loop in linked list
